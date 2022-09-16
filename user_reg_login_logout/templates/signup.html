@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <center>
+        <h2>Sign Up and get started!</h2>
+        <br><br><br><br>
+        <div class="container">
+            <form action = "{{ url_for('register') }}" method = "post" id="action-form">
+                <p>{{msg}}</p>
+                <label for="uname">Enter a username: </label>
+                <input type="text" id="uname" name="username">
+                <label for="email">Enter a email ID: </label>
+                <input type="email" id="email" name="email" placeholder="abc@mail.com" required/>
+                <label for="pswd">Create your password: </label>
+                <input type="password" id="pswd" name="password">
+                <br><br>
+                <input type="submit">
+            </form>
+            <br><br>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Simple Calculator</title>
+		<link rel="stylesheet" href="..\static\landing_pg.css">
+		<script src="..\static\script.js" defer></script>
+	</head>
+	<body>
+		<div id="navbar">
+			{% if session.get('username') %}
+				<button type="button" onClick="window.location.href='{{ url_for('signout') }}'">logout</button>	
+			{% endif %}
+		</div>
+		<div id="calculator-grid">
+			<div id="display">
+				<div id="previous-operand">1234 +</div>
+				<div id="current-operand">45689</div>
+			</div>
+			<button class="span-two">AC</button>
+			<button>DEL</button>
+			<button>÷</button>
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>*</button>
+			<button>4</button>
+			<button>5</button>
+			<button>6</button>
+			<button>-</button>
+			<button>7</button>
+			<button>8</button>
+			<button>9</button>
+			<button>+</button>
+			<button>.</button>
+			<button>0</button>
+			{% if session.get('username', None) %}
+				<button class="span-two">=</button>
+			{% endif %}
+			{% if not session.get('username', None) %}
+				<button type="button" class="span-two" onClick="window.location.href='{{ url_for('login') }}'">=</button>
+			{% endif %}
+		</div>
+	</body>
+</html>
